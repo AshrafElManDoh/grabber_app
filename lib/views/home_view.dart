@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grapper_app/models/category_model.dart';
+import 'package:grapper_app/models/fruit_model.dart';
 import 'package:grapper_app/widgets/category_list_view.dart';
 import 'package:grapper_app/widgets/custom_sliders.dart';
+import 'package:grapper_app/widgets/fruits_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -30,6 +32,25 @@ class _HomeViewState extends State<HomeView> {
       image: "assets/images/category/vegatbels.png",
     ),
   ];
+
+  List<FruitModel> fruits = [
+    FruitModel.withoudRating(
+      name: "Banana",
+      image: "assets/images/fruits/banana.png",
+      price: 3.99,
+    ),
+    FruitModel.withoudRating(
+      name: "Orange",
+      image: "assets/images/fruits/orange.png",
+      price: 2.99,
+    ),
+    FruitModel.withoudRating(
+      name: "Pepper",
+      image: "assets/images/fruits/papper.png",
+      price: 2.99,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,16 +73,15 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(height: 16),
-            CustomSliders(items: items),
-            SizedBox(height: 16),
-            CategoryListView(categories: categories),
-          ],
-        ),
+      body: Column(
+        children: [
+          SizedBox(height: 16),
+          CustomSliders(items: items),
+          SizedBox(height: 16),
+          CategoryListView(categories: categories),
+          SizedBox(height: 16),
+          FruitsWidget(fruits: fruits),
+        ],
       ),
     );
   }

@@ -9,9 +9,10 @@ class CategoryListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: 150,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.only(left: 16,right: 16),
         shrinkWrap: true,
         separatorBuilder: (context, index) => SizedBox(width: 16),
         itemBuilder: (context, index) =>
