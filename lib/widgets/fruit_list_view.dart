@@ -12,10 +12,10 @@ class FruitListView extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        padding: EdgeInsets.only(left: 16,right: 16),
+        padding: EdgeInsets.only(left: 16, right: 16),
         itemBuilder: (context, index) =>
             FruitItemWidget(fruitModel: fruits[index]),
-        separatorBuilder: (context, index) => SizedBox(width: 10,),
+        separatorBuilder: (context, index) => SizedBox(width: 10),
         itemCount: fruits.length,
       ),
     );

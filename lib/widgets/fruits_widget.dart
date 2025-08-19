@@ -3,9 +3,12 @@ import 'package:grapper_app/models/fruit_model.dart';
 import 'package:grapper_app/widgets/fruit_list_view.dart';
 
 class FruitsWidget extends StatelessWidget {
-  const FruitsWidget({super.key, required this.fruits});
+  const FruitsWidget({
+    super.key,
+    required this.fruits,
+   
+  });
   final List<FruitModel> fruits;
-
   @override
   Widget build(BuildContext context) {
     return Column(

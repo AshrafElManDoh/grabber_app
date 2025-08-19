@@ -28,7 +28,9 @@ class FruitItemWidget extends StatelessWidget {
                     radius: 19,
                     backgroundColor: Colors.white,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                      },
                       icon: Icon(Icons.add, color: Colors.black),
                     ),
                   ),
