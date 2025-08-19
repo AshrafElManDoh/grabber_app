@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:grapper_app/models/fruit_model.dart';
 
 class FruitItemWidget extends StatelessWidget {
-  const FruitItemWidget({super.key, required this.fruitModel});
+  const FruitItemWidget({
+    super.key,
+    required this.fruitModel,
+    required this.toggleProduct,
+    required this.isSelected,
+  });
   final FruitModel fruitModel;
+  final void Function(FruitModel fruit) toggleProduct;
+  final bool Function(FruitModel fruit) isSelected;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,9 +36,11 @@ class FruitItemWidget extends StatelessWidget {
                     backgroundColor: Colors.white,
                     child: IconButton(
                       onPressed: () {
-                        
+                        toggleProduct(fruitModel);
                       },
-                      icon: Icon(Icons.add, color: Colors.black),
+                      icon: isSelected(fruitModel)
+                          ? Icon(Icons.remove, color: Colors.black)
+                          : Icon(Icons.add, color: Colors.black),
                     ),
                   ),
                 ),
@@ -55,7 +64,10 @@ class FruitItemWidget extends StatelessWidget {
                     SizedBox(width: 2),
                     Text(
                       "4.5 (500)",
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ],
                 ),

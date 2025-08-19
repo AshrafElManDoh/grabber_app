@@ -6,9 +6,12 @@ class FruitsWidget extends StatelessWidget {
   const FruitsWidget({
     super.key,
     required this.fruits,
-   
+    required this.toggleProduct,
+    required this.isSelected,
   });
   final List<FruitModel> fruits;
+  final void Function(FruitModel fruit) toggleProduct;
+  final bool Function(FruitModel fruit) isSelected;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +21,11 @@ class FruitsWidget extends StatelessWidget {
           child: FruitsHeader(),
         ),
         SizedBox(height: 16),
-        FruitListView(fruits: fruits),
+        FruitListView(
+          fruits: fruits,
+          toggleProduct: toggleProduct,
+          isSelected: isSelected,
+        ),
       ],
     );
   }
